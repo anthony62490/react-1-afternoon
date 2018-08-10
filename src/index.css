@@ -34,7 +34,8 @@ body {
 }
 
 .filterObjectPB {
-  height: 390px
+  /* height: 390px */
+  height: 440px;
 }
 
 .filterStringPB {
@@ -63,7 +64,9 @@ body {
 }
 
 .filterObjectRB {
-  height: 95px;
+  /* height: 95px; */
+  height: 105px;
+  font-size: 12px;
 }
 
 .filterStringRB {
