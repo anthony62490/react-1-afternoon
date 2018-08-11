@@ -17,35 +17,48 @@ class Palindrome extends Component
         this.setState({userInput: input.target.value});
     }
 
+    isPalindrome(str)
+    {
+        //checks an all-lowercase all-alpha string to see that the letters are mirrored along the middle
+        let halfLen = Math.floor(str.length/2);
+        for(let i=0; i<halfLen; i++)
+        {
+            if(str[i] !== str[str.length-(i+1)]) //checks from the front and the back of the string
+                return false;
+        }
+        return true;
+    }
+
+    isLetter(i) 
+    {
+        if(i.length === 1 && i.match(/[a-z]/i)) 
+        {
+            return true; 
+        }
+        return false;
+    }
+
     palindromeButtonEvent()
     {
-        function isLetter(i) 
+        let check = this.state.userInput;
+        var noCaps = '';
+
+        console.log(this.isPalindrome("amanaplanacanalpanama"));
+        console.log("check1");
+
+        //removes all non-alpha chars
+        for(var i=0; i<check.length; i++)
         {
-            i.toLowerCase();
-            console.log("test ",i);
-            // return i.length !== 1 && i.match(/[A-Z|a-z]/i);
-            if (i.length !== 1)
+            console.log("check2");
+            if(this.isLetter(check[i]))
             {
-                console.log("check");
-                if(i.match(/[a-z|A-Z]/g)) 
-                    return true; 
+                console.log("check3");
+                noCaps += check[i];
             }
-            return false;
+            console.log(noCaps);
         }
 
-        // let check = this.state.userInput;
-        console.log(isLetter('a'));
-        console.log(isLetter('4'));
-        console.log(isLetter('z'));
-        console.log(isLetter('A'));
-        console.log(isLetter('Z'));
-        console.log(isLetter('/'));
-        console.log(isLetter('aa'));
-        //first, strip out everything that's not a letter and convert to lowercase
-        // for(let i=0; i<check.length; i++)
-        // {
-        //     if(check[i].charAt)
-        // }
+        // this.isPalindrome(check);
     }
 
     

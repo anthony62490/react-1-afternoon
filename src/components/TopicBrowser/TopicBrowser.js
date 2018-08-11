@@ -16,7 +16,7 @@ class TopicBrowser extends Component
     render()
     {
         return (
-            <div id='puzzle-feed'>
+            <div>
                 <EvenAndOdd/>
                 <FilterObject/>
                 <FilterString/>

@@ -6,7 +6,7 @@ class App extends Component {
   render() 
   {
     return (
-      <div id="browser-display">
+      <div>
         <TopicBrowser />
       </div>
     ); //return
