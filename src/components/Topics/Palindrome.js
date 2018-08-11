@@ -53,7 +53,7 @@ class Palindrome extends Component
         }
 
         let v = this.isPalindrome(feelinLuckyPunct);
-        this.setState({palindrome: v, userInput: ''});
+        this.setState({palindrome: v/*, userInput: ''*/});
     }
 
     

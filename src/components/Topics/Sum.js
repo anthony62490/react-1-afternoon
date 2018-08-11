@@ -22,6 +22,16 @@ class Sum extends Component
         // console.log(`${this.state.num1} / ${this.state.num2}`);
     }
 
+    handleEmptyInput(num)
+    {
+        if(this.state.num1 === 0 && num === 1)
+            return "";
+        if(this.state.num2 === 0 && num === 2)
+            return "";
+        else
+            return num;
+    }
+
     buttonSumEvent()
     {
         let one = Number(this.state.num1);
@@ -34,10 +44,10 @@ class Sum extends Component
         return (
             <div className="puzzleBox sumPB">
                 <h4>"Sum"</h4>
-                <input className="inputLine" onChange={(x)=> this.handleInput(x, true)} value={this.state.sum} placeholder={`1st number`}/>
-                <input className="inputLine" onChange={(x)=> this.handleInput(x, false)} value={this.state.sum} placeholder={`2nd number`}/>
+                <input className="inputLine" onChange={(x)=> this.handleInput(x, true)} value={this.handleEmptyInput(1)} placeholder={`1st number`}/>
+                <input className="inputLine" onChange={(x)=> this.handleInput(x, false)} value={this.handleEmptyInput(2)} placeholder={`2nd number`}/>
                 <button className="confirmationButton" onClick={()=> this.buttonSumEvent()}>Fusion... HA!</button>
-                <span className="resultsBox" placeholder={`Sum`}>{String(`= ${this.state.sum}`)}</span>
+                <span className="resultsBox" placeholder={`Sum`}>{this.state.sum}</span>
             </div>
         ); //return
     };
