@@ -41,24 +41,25 @@ class Palindrome extends Component
     palindromeButtonEvent()
     {
         let check = this.state.userInput;
-        var noCaps = '';
+        let noCaps = '';
 
         console.log(this.isPalindrome("amanaplanacanalpanama"));
-        console.log("check1");
+        // console.log("check1");
 
         //removes all non-alpha chars
-        for(var i=0; i<check.length; i++)
-        {
-            console.log("check2");
-            if(this.isLetter(check[i]))
-            {
-                console.log("check3");
-                noCaps += check[i];
-            }
-            console.log(noCaps);
-        }
+        // for(let j=0; j<check.length; j++) //WHY THE FUCK WON'T YOU WORK?
+        // {
+        //     console.log("check2");
+        //     if( this.isLetter(check[j]) )
+        //     {
+        //         console.log("check3");
+        //         noCaps += check[j];
+        //     }
+        //     console.log(noCaps);
+        // }
 
-        // this.isPalindrome(check);
+        let v = this.isPalindrome(check);
+        this.setState({palindrome: v});
     }
 
     
@@ -71,7 +72,7 @@ class Palindrome extends Component
                 <input className="inputLine" onChange={(x)=> this.handleInput(x)} value={this.state.userInput}/>
                 <button className="confirmationButton" onClick={()=> this.palindromeButtonEvent()}>A nut for a jar of tuna.</button>
                 <span className="resultsBox">
-                    {this.state.palindrome}
+                    {String(`Palindrome: ${this.state.palindrome}`)}
                 </span>
             </div>
         ); //return
