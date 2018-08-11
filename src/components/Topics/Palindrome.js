@@ -19,8 +19,6 @@ class Palindrome extends Component
 
     isPalindrome(str)
     {
-        console.log(`Entering isPalindrome(). str:"${str}"`);
-
         if(str.length === 0)
             return "Please input a phrase";
         //checks an all-alpha string to see that the letters are mirrored along the middle
@@ -38,9 +36,7 @@ class Palindrome extends Component
     isLetter(i) 
     {
         if(i.length === 1 && i.match(/[a-z]/i)) 
-        {
             return true; 
-        }
         return false;
     }
 
@@ -49,19 +45,12 @@ class Palindrome extends Component
         let check = this.state.userInput;
         let feelinLuckyPunct = '';
 
-        // console.log("check1");
-
-        console.log(`check:       "${check}"`);
-        console.log(`check length:"${check.length}"`);
-
         //strips all non-alpha chars
         for(let i=0; i<check.length; i++)
         {
             if(this.isLetter(check[i]))
                 feelinLuckyPunct += check[i];
         }
-
-        console.log(`feelinLucky: ${feelinLuckyPunct}`);
 
         let v = this.isPalindrome(feelinLuckyPunct);
         this.setState({palindrome: v, userInput: ''});
