@@ -19,11 +19,17 @@ class Palindrome extends Component
 
     isPalindrome(str)
     {
-        //checks an all-lowercase all-alpha string to see that the letters are mirrored along the middle
+        console.log(`Entering isPalindrome(). str:"${str}"`);
+
+        if(str.length === 0)
+            return "Please input a phrase";
+        //checks an all-alpha string to see that the letters are mirrored along the middle
         let halfLen = Math.floor(str.length/2);
         for(let i=0; i<halfLen; i++)
         {
-            if(str[i] !== str[str.length-(i+1)]) //checks from the front and the back of the string
+            let front = str[i].toLowerCase();
+            let back = str[str.length-(i+1)].toLowerCase();
+            if(front !== back)
                 return false;
         }
         return true;
@@ -41,25 +47,24 @@ class Palindrome extends Component
     palindromeButtonEvent()
     {
         let check = this.state.userInput;
-        let noCaps = '';
+        let feelinLuckyPunct = '';
 
-        console.log(this.isPalindrome("amanaplanacanalpanama"));
         // console.log("check1");
 
-        //removes all non-alpha chars
-        // for(let j=0; j<check.length; j++) //WHY THE FUCK WON'T YOU WORK?
-        // {
-        //     console.log("check2");
-        //     if( this.isLetter(check[j]) )
-        //     {
-        //         console.log("check3");
-        //         noCaps += check[j];
-        //     }
-        //     console.log(noCaps);
-        // }
+        console.log(`check:       "${check}"`);
+        console.log(`check length:"${check.length}"`);
 
-        let v = this.isPalindrome(check);
-        this.setState({palindrome: v});
+        //strips all non-alpha chars
+        for(let i=0; i<check.length; i++)
+        {
+            if(this.isLetter(check[i]))
+                feelinLuckyPunct += check[i];
+        }
+
+        console.log(`feelinLucky: ${feelinLuckyPunct}`);
+
+        let v = this.isPalindrome(feelinLuckyPunct);
+        this.setState({palindrome: v, userInput: ''});
     }
 
     
