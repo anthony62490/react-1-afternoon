@@ -64,7 +64,11 @@ class Palindrome extends Component
         console.log(`feelinLucky: ${feelinLuckyPunct}`);
 
         let v = this.isPalindrome(feelinLuckyPunct);
+<<<<<<< HEAD
         this.setState({palindrome: v, userInput: ''});
+=======
+        this.setState({palindrome: v});
+>>>>>>> 4ca31a6c11c426e1bf62614cd4d18298d20768f2
     }
 
     
